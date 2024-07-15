@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -9,6 +10,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    final double heightscreen = MediaQuery.of(context).size.width;
+    final double widthscreen = MediaQuery.of(context).size.width;
+
+    print('width : $widthscreen, height: $heightscreen');
     return Scaffold(
       backgroundColor: Color.fromRGBO(244, 243, 243, 1),
       appBar: AppBar(
@@ -72,7 +77,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     SizedBox(
-                      height: 10,
+                      height: 3.h,
                     ),
                   ],
                 ),
@@ -94,7 +99,7 @@ class _HomePageState extends State<HomePage> {
                       height: 15,
                     ),
                     Container(
-                      height: 200,
+                      height: widthscreen > 450 ? 80.h : 28.h,
                       child: ListView(
                         scrollDirection: Axis.horizontal,
                         children: <Widget>[
@@ -109,7 +114,7 @@ class _HomePageState extends State<HomePage> {
                       height: 20,
                     ),
                     Container(
-                      height: 150,
+                      height: widthscreen > 450 ? 90.h : 20.h,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         image: DecorationImage(
